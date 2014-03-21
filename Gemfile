@@ -55,3 +55,4 @@ gem 'rails_12factor', group: :production
 gem 'sprockets_better_errors'
 
 gem 'thread_safe', '0.2.0'
+gem 'bootstrap-sass', '~> 3.1.1'
