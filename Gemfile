@@ -60,3 +60,9 @@ gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
 gem 'pundit'
 gem 'redcarpet'
+
+# image uploader
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
+gem 'figaro'
