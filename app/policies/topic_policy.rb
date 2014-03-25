@@ -9,7 +9,7 @@ class TopicPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    record.public? || user.present?
   end
 
   def update?
