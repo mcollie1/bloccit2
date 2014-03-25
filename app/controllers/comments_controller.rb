@@ -9,7 +9,6 @@ class CommentsController < ApplicationController
     @comment.post = @post
     @new_comment = Comment.new
     
-
     authorize @comment
     if @comment.save
       redirect_to [@topic, @post], notice: "Comment was submitted successfully."

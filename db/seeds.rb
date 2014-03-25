@@ -28,6 +28,7 @@ end
   6.times do
     topic = topics.first
     post = Post.create(
+      topic: topic,
       user: user,
       title: Faker::Lorem.sentence, 
       body: Faker::Lorem.paragraph)
@@ -39,6 +40,7 @@ end
 
     rand(3..7).times do
       post.comments.create(
+          user: user,
           body: Faker::Lorem.paragraphs(rand(1..2)).join("\n")
         )
       end

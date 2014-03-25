@@ -27,6 +27,7 @@
     </div>
   </div>
 
+
   <div class="row">
     <div class="col-md-8">
       <h3>Comments</h3>
@@ -44,10 +45,11 @@
       <% end %>
       <%= will_paginate @comments %>
     </div>
+  </div>
   <div class="col-md-4">
     <% if policy(Comment.new).create? %>
       <h4>Leave a comment</h4>
-      <hr/>
-      <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
+      <br/>
+      <%= render partial: 'comments/comment', locals: { topic: @topic, post: @post, comment: @comment } %>
     <% end %>
 </div>
