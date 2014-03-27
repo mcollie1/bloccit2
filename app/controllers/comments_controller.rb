@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   def create
     @topic = Topic.find(params[:topic_id])
     @post = @topic.posts.find(params[:post_id])
-    @comment = @post.comments
+    @comments = @post.comments
 
     @comment = current_user.comments.build(comment_params)
     @comment.post = @post
@@ -36,6 +36,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:body, :post_id, :user_id)
+    params.require(:comment).permit(:body)
   end
 end
