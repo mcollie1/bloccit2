@@ -39,7 +39,8 @@
               <%= comment.body %>
             </h4>
             <small>
-              submitted <%= time_ago_in_words(comment.created_at) %> ago <br/>
+              <%= render partial: 'comments/comment', locals: { topic: @topic, post: @post, comment: @comment } %> 
+              <br/>
             </small>
           </div>
         </div>
@@ -48,9 +49,9 @@
     </div>
   </div>
   <div class="col-md-4">
-    <% if policy(Comment.new).create? %>
-      <h4>Leave a comment</h4>
-      <br/>
-      <%= render partial: 'comments/comment', locals: { topic: @topic, post: @post, comment: @comment } %>
+    <% if policy(Post.new).create? %>
+    <h4>Leave a Comment</h4>
+      <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
     <% end %>
+  </div>
 </div>
