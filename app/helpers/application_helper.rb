@@ -25,4 +25,10 @@ module ApplicationHelper
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
+
+  def comment_url_helper(comment)
+    post = comment.post
+    topic = post.topic
+    [topic, post, comment]
+  end
 end
