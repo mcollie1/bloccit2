@@ -53,6 +53,8 @@
   <div class="col-md-4">
     <% if policy(Post.new).create? %>
     <h4>Leave a Comment</h4>
+
+    <br/>
       <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
     <% end %>
   </div>
