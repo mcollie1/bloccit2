@@ -31,4 +31,10 @@ module ApplicationHelper
     topic = post.topic
     [topic, post, comment]
   end
+
+  def profile_comment_url_helper(comment) # comment partial
+    post = comment.post
+    topic = post.topic
+    [topic, post]
+  end
 end

@@ -41,7 +41,7 @@
               <%= comment.body %>
             </h4>
             <small>
-              <%= render partial: 'comments/comment', locals: { topic: @topic, post: @post, comment: comment } %> 
+              <%= render partial: 'comments/comment', collection: @comments %> 
               <br/>
             </small>
           </div>
