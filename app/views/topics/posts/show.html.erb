@@ -34,20 +34,15 @@
   <div class="row">
     <div class="col-md-8">
       <h3>Comments</h3>
-      <% @comments.each do |comment| %>
-        <div class="media">
-          <div class="media-body">
-            <h4 class="media-heading">
-              <%= comment.body %>
-            </h4>
-            <small>
-              <%= render partial: 'comments/comment', collection: @comments %> 
-              <br/>
-            </small>
-          </div>
-        </div>
-      <% end %>
-      <%= will_paginate @comments %>
+        <small>
+
+          <hr/>
+
+          <h2 class='js-comments-count'><%= @comments.count %> Comments</h2>
+          <%= render partial: 'comments/comment', collection: @comments %> 
+          <br/>
+        </small>
+        <%= will_paginate @comments %>
     </div>
   </div>
   <div class="col-md-8">
