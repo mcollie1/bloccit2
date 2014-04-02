@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  skip_before_filter  :verify_authenticity_token
   respond_to :html, :js
 
   def create
@@ -12,9 +13,13 @@ class CommentsController < ApplicationController
     
     authorize @comment
     if @comment.save
-      redirect_to [@topic, @post], notice: "Comment was submitted successfully."
+      flash[:notice] = "Comment was created."
     else
-      flash[:error] = "There was an error submitting the comment. Please try again."
+      flash[:error] = "There was an error saving the comment. Please try again."
+    end
+
+    respond_with(@comment) do |f|
+      f.html { redirect_to [@topic, @post] }
     end
   end
 
@@ -42,6 +47,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:body)
+    params.require(:comment).permit(:body, :post_id)
   end
 end
