@@ -22,14 +22,14 @@
 </div>
 
 
-<script> blocmetrics.track("Topic Views", {updated_at:'<%= topic.name %>', created_at: '<%= @topic.created_at %>' }) 
+<script> blocmetrics.track("Topic Views", {updated_at:'<%= @topic.name %>', created_at: '<%= @topic.created_at %>' }) 
 
 (function (){
     // track a client-side event using the Blocmetrics analytics service
   var _bm_event = {
     name: "Topic Views",
-    updated_at: '<%= @topic.name %>',
-    created_at: '<%= @topic.created_at %>')
+    updated_at: "<%= @topic.name %>",
+    created_at: "<%= @topic.created_at %>"
   }
 
   var _bm_request = new XMLHttpRequest();
