@@ -1,4 +1,4 @@
-<h1 id="topic_name"><%= @topic.name %></h1>
+<h1><%= @topic.name %></h1>
 
 <% if policy(@topic).update? %>
   <%= link_to "Edit Topic", edit_topic_path, class: 'btn btn-success' %>
@@ -22,14 +22,14 @@
 </div>
 
 
-<script> blocmetrics.track("Topic Views", {topic_name: getAttribute('topic.name'), created_at: getAttribute(created_at) }) 
+<script> blocmetrics.track("Topic Views", {updated_at:'<%= topic.name %>', created_at: '<%= @topic.created_at %>' }) 
 
 (function (){
     // track a client-side event using the Blocmetrics analytics service
   var _bm_event = {
     name: "Topic Views",
-    topic_name: getAttribute('name'),
-    created_at: getAttribute('created_at')
+    updated_at: '<%= @topic.name %>',
+    created_at: '<%= @topic.created_at %>')
   }
 
   var _bm_request = new XMLHttpRequest();
