@@ -1,3 +1,22 @@
+<script> 
+(function (){
+    // track a client-side event using the Blocmetrics analytics service
+  var _bm_event = {
+    name: "Topic Views",
+    topic_name: "<%= @topic.name %>",
+    created_at: "<%= @topic.created_at %>"
+  }
+
+  var _bm_request = new XMLHttpRequest();
+  _bm_request.open("POST", "http://collier-blocmetrics.herokuapp.com/events.json", true);
+  _bm_request.setRequestHeader('Content-Type', 'application/json');
+  _bm_request.onreadystatechange = function() {
+    // this function runs when the Ajax request changes state.
+    // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
+  };
+  _bm_request.send(JSON.stringify(event));
+}());</script>
+
 <h1><%= @topic.name %></h1>
 
 <% if policy(@topic).update? %>
@@ -21,23 +40,3 @@
   </div>
 </div>
 
-
-<script> blocmetrics.track("Topic Views", {updated_at:'<%= @topic.name %>', created_at: '<%= @topic.created_at %>' }) 
-
-(function (){
-    // track a client-side event using the Blocmetrics analytics service
-  var _bm_event = {
-    name: "Topic Views",
-    updated_at: "<%= @topic.name %>",
-    created_at: "<%= @topic.created_at %>"
-  }
-
-  var _bm_request = new XMLHttpRequest();
-  _bm_request.open("POST", "http://localhost:3000/events.json", true);
-  _bm_request.setRequestHeader('Content-Type', 'application/json');
-  _bm_request.onreadystatechange = function() {
-    // this function runs when the Ajax request changes state.
-    // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
-  };
-  _bm_request.send(JSON.stringify(event));
-}());</script>
