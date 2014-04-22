@@ -3,8 +3,10 @@ $(document).ready(function (){
     // track a client-side event using the Blocmetrics analytics service
   var _bm_event = {
     name: "Topic Views",
+    application: "Bloccit",
     topic_name: "<%= @topic.name %>",
-    created_at: "<%= @topic.created_at %>"
+    app_user: "<%= current_user.id %>",
+    app_owner: "mcollie07@yahoo.com" // admin, general email to synch app with Blocmetrics view for app_owner  
   }
 
   var _bm_request = new XMLHttpRequest();
