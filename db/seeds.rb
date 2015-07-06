@@ -56,7 +56,7 @@ admin = User.new(
   password_confirmation: 'helloworld')
 admin.skip_confirmation!
 admin.save
-admin.update_attribute(:role, 'admin')
+admin.update_attribute(role: 'admin')
 
 # Create a moderator
 moderator = User.new(
@@ -66,7 +66,7 @@ moderator = User.new(
   password_confirmation: 'helloworld')
 moderator.skip_confirmation!
 moderator.save
-moderator.update_attribute(:role, 'moderator')
+moderator.update_attribute(role: 'moderator')
 
 # Create a member
 member = User.new(
