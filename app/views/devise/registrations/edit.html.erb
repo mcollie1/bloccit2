@@ -39,6 +39,20 @@
         <%= f.label :name %>
         <%= f.text_field :name, class: 'form-control', placeholder: "Enter name", autofocus: true %>
       </div>
+      <div>
+        <span class="asterisk-color"> * </span>
+        <%= f.select :home_town, options_for_select(us_towns), include_blank: true, default: nil %>
+
+        <span class="asterisk-color"> * </span>
+        <%= f.text_field :home_neighborhood, placeholder: "Enter home neighborhood", autofocus: true %>
+    
+        <span class="asterisk-color"> * </span>
+        <%= f.select :home_region, options_for_select(us_states), include_blank: true, default: nil %>
+
+        <span class="asterisk-color"> * </span>
+        <%= f.text_field :home_zip, placeholder: "Enter home zip", autofocus: true %>
+      </div>
+      </br>
       <% if current_user.avatar? %>
         <div class="form-group">
           <p>Current avatar</p>

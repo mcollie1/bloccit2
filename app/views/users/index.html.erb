@@ -5,6 +5,25 @@
     <%= render partial: 'users/user', collection: @users %>
     <%= will_paginate @users %>
   </div>
+
+  <div class="col-md-8">
+    <h1>Users From Your Town/Neighborhood</h1>
+    <% @home_users.each do |user| %>
+      <div class="media">
+        <div class="media-body">
+          <h4 class="media-heading">
+            <%= link_to user.name, user %>
+          </h4>
+          <small>
+            <%= user.home_town %> (
+            <%= user.home_neighborhood %> )
+          </small>
+        </div>
+      </div>
+    <% end %>
+    <%= will_paginate @users %>
+  </div>
+
   <div class="col-md-4">
   </div>
 </div>

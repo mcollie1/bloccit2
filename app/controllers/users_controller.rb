@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.top_rated.paginate(page: params[:page], per_page: 10)
+    @home_users = User.where(home_town: current_user.home_town, home_neighborhood: current_user.home_neighborhood) 
   end
 
   def show
@@ -22,6 +23,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :avatar, :avatar_cache, :email_favorites)
+    params.require(:user).permit(:name, :avatar, :avatar_cache, :email_favorites, :home_town, :home_neighborhood, :home_region, :home_zip)
   end
 end
