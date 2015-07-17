@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.top_rated.paginate(page: params[:page], per_page: 10)
-    @home_users = User.where(home_town: current_user.home_town, home_neighborhood: current_user.home_neighborhood) 
+    @home_users = User.where(home_zip: current_user.home_zip) 
   end
 
   def show
